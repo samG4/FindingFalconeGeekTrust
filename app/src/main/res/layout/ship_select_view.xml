@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorWhite"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        >
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblShip"
+            android:text="@string/select_space_ship"
+            android:typeface="sans"
+            android:layout_weight="0.5"
+            android:fontFamily="sans-serif"
+            android:textSize="34sp"
+            android:gravity="center"
+            android:letterSpacing="0.25"
+            android:textColor="@color/grey"
+            />
+
+    <android.support.v7.widget.AppCompatSpinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spnShip"
+            style="@style/Base.Widget.AppCompat.DropDownItem.Spinner"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:spinnerMode="dropdown"
+            android:layout_gravity="center"
+            android:layout_marginBottom="72dp"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnBegin"
+                android:layout_weight="1"
+                android:layout_margin="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/select"
+                android:background="@color/colorWhite"
+                android:textColor="@color/grey"
+                android:shadowColor="@color/grey"
+                android:elevation="2dp"
+                app:elevation="2dp"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnCancel"
+                android:layout_weight="1"
+                android:layout_margin="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/reset"
+                android:textColor="@color/colorWhite"
+                android:background="@color/red"
+                android:shadowColor="@color/grey"
+                android:elevation="2dp"/>
+    </LinearLayout>
+
+</LinearLayout>

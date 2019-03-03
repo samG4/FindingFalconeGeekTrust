@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorSpace"
+        tools:context=".ResultActivity">
+
+    <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:padding="16dp"
+            android:textColor="@color/colorWhite"
+            android:text="@string/status_message"/>
+
+    <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            tools:text="Time Taken : 200"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:padding="16dp"
+            android:textColor="@color/colorWhite"
+            />
+    <TextView
+            android:id="@+id/tvPlanet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Planet found: DonLon"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:padding="16dp"
+            android:textColor="@color/colorWhite"
+            android:layout_weight="0.5"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/btnStartAgain"
+            android:layout_marginBottom="72dp"
+            android:text="@string/start_again"
+            android:lineSpacingExtra="1.25dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorPrimaryDark"
+            android:shadowColor="@color/grey"
+            />
+
+</LinearLayout>

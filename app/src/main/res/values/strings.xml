@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">FindingFalcone</string>
+    <string name="time_taken">Time Taken</string>
+    <string name="select_space_ship">Select  Space  Ship</string>
+    <string name="select">Select</string>
+    <string name="reset">Cancel</string>
+    <string name="miles">&#160; megamiles</string>
+    <string name="zero">0</string>
+    <string name="hours">hours</string>
+    <string name="find_falcone">Find Falcone</string>
+    <string name="status_message">Success! Congratulations on Finding Falcone. King Shan is mighty pleased.</string>
+    <string name="time_taken_result">Time Taken : &#160;</string>
+    <string name="planet_found_result">Planet Found : &#160;</string>
+    <string name="start_again">Start Again</string>
+    <string name="failure_status">King Shan will have to be notified that we could not find Falcone. Hope he gets success next time. </string>
+    <string-array name="planets">
+        <item>donlon</item>
+        <item>enchai</item>
+        <item>jebing</item>
+        <item>lerbin</item>
+        <item>pingasor</item>
+        <item>sapir</item>
+    </string-array>
+</resources>

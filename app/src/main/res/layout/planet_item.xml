@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+    <ImageView
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            tools:src="@drawable/p1"
+            android:id="@+id/imgPlanet"
+            android:layout_marginTop="20dp"
+            android:elevation="4dp"/>
+
+    <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:elevation="2dp"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="2dp"
+            android:backgroundTint="@color/colorSpace">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Donlon"
+                    android:typeface="sans"
+                    android:fontFamily="sans-serif"
+                    android:textSize="34sp"
+                    android:letterSpacing="0"
+                    android:textColor="@color/colorWhite"
+                    android:id="@+id/tvPlanetName"
+                    android:maxLines="1"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="100 miles"
+                    android:id="@+id/tvDistance"
+                    android:typeface="sans"
+                    android:fontFamily="sans-serif"
+                    android:textSize="24sp"
+                    android:letterSpacing="0"
+                    android:textColor="@color/colorWhite"
+                    android:maxLines="1"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_space_ship"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/btnSpaceShip"
+                    android:textColor="@color/colorWhite"
+                    android:backgroundTint="@color/colorSpace2"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="16dp"/>
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_check"
+                    android:id="@+id/imgCheck"
+                    android:layout_gravity="end"
+                    android:visibility="invisible"
+                    android:layout_marginEnd="16dp"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</FrameLayout>
