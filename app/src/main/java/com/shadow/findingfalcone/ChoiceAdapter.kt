@@ -60,7 +60,7 @@ class ChoiceAdapter(
 
         btnShip.text =
                 if (!currentPlanet.vehicleName.isNullOrEmpty()) currentPlanet.vehicleName else ctx.getString(R.string.select_space_ship)
-        btnShip.setOnClickListener {
+        listItemView.setOnClickListener {
             if(!isSearchQuotaFull){
                 planetChoiceHandler.selectedPlanet(currentPlanet)
             }else{

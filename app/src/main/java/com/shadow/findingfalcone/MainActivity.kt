@@ -50,13 +50,11 @@ class MainActivity : AppCompatActivity(), FindFalconeHandler, ChoiceAdapter.Plan
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        intent?.let {
-            if (it.getBooleanExtra("startAgain", false)) {
-                reset()
-            }
-        }
         worker = FindFalconeWorker(this)
-
+        localIntent = intent
+        if(intent.getBooleanExtra("reset", false)){
+            reset()
+        }
         dialog = Dialog(this, android.R.style.Theme_Translucent_NoTitleBar)
         with(dialog) {
             this.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -212,13 +210,13 @@ class MainActivity : AppCompatActivity(), FindFalconeHandler, ChoiceAdapter.Plan
         worker.findFalcone(requestBody)
 
     }
-
+    private lateinit var localIntent: Intent
     override fun handleResponse(responseBody: ResponseBody) {
-        val intent = Intent(this, ResultActivity::class.java)
-        intent.putExtra("status", responseBody.status)
-        intent.putExtra("planetName", responseBody.planet_name)
-        intent.putExtra("timeTaken", tvTimeTaken.text.toString())
-        startActivity(intent)
+        localIntent =  Intent(this, ResultActivity::class.java)
+        localIntent.putExtra("status", responseBody.status)
+        localIntent.putExtra("planetName", responseBody.planet_name)
+        localIntent.putExtra("timeTaken", tvTimeTaken.text.toString())
+        startActivity(localIntent)
     }
 
     override fun sendNoMoreResAlert() {
@@ -236,11 +234,13 @@ class MainActivity : AppCompatActivity(), FindFalconeHandler, ChoiceAdapter.Plan
     }
 
     private fun reset() {
+        localIntent.putExtra("reset", false)
         planetList.clear()
         vehicleList.clear()
+        hashMap.clear()
+        worker.disposable.dispose()
         currentplanet = Planet("", 0, false, "")
         tvTimeTaken.text = "0"
-        hashMap.clear()
         finish()
         startActivity(intent)
     }
@@ -255,6 +255,10 @@ class MainActivity : AppCompatActivity(), FindFalconeHandler, ChoiceAdapter.Plan
             R.id.reset -> {
                 reset()
             }
+            /*R.id.instruction -> {
+                localIntent.putExtra("status","instruction")
+                startActivity(localIntent)
+            }*/
         }
         return true
     }

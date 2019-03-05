@@ -30,16 +30,16 @@ interface FindFalconeAPI {
 
 private val baseUrl = "https://findfalcone.herokuapp.com/"
 
-class FindFalconeWorker(val handler: FindFalconeHandler){
+class FindFalconeWorker(val handler: FindFalconeHandler) {
 
     val retroInst = Retrofit.Builder()
         .baseUrl(baseUrl)
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build().create(FindFalconeAPI::class.java)
-
-    fun getPlanets(){
-        CompositeDisposable().add(
+    var disposable = CompositeDisposable()
+    fun getPlanets() {
+        disposable.add(
             retroInst.getPlanets()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -47,8 +47,8 @@ class FindFalconeWorker(val handler: FindFalconeHandler){
         )
     }
 
-    fun getVehicles(){
-        CompositeDisposable().add(
+    fun getVehicles() {
+        disposable.add(
             retroInst.getVehicles()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -56,8 +56,8 @@ class FindFalconeWorker(val handler: FindFalconeHandler){
         )
     }
 
-    fun getToken(){
-        CompositeDisposable().add(
+    fun getToken() {
+        disposable.add(
             retroInst.getToken()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -65,8 +65,8 @@ class FindFalconeWorker(val handler: FindFalconeHandler){
         )
     }
 
-    fun findFalcone(requestBody: RequestBody){
-        CompositeDisposable().add(
+    fun findFalcone(requestBody: RequestBody) {
+        disposable.add(
             retroInst.findFalcone(requestBody)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -75,7 +75,7 @@ class FindFalconeWorker(val handler: FindFalconeHandler){
     }
 }
 
-interface FindFalconeHandler{
+interface FindFalconeHandler {
     fun handlePlanetResponse(result: ArrayList<Planet>)
     fun handleVehicleResponse(result: ArrayList<Vehicles>)
     fun handleTokenResponse(token: RequestBody)
